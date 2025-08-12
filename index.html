@@ -1,0 +1,363 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rahul Tiwari - Full Stack Developer (MERN). Portfolio showcasing projects, skills, services and contact details." />
+  <title>Rahul Tiwari • Full Stack Developer</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent:#2b8eff; /* blue */
+      --accent-2:#00d4ff;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      color-scheme: dark;
+      --max-width: 1100px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg), #071025 120%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:80px;
+    }
+
+    /* Container */
+    .container{max-width:var(--max-width);margin:0 auto;padding:40px 20px;}
+
+    /* Header / Navbar */
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(11,18,32,0.6), rgba(11,18,32,0.3));z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .nav{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;padding:14px 20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,0.06)}
+    .brand h1{font-size:18px;margin:0;font-weight:700}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:500}
+    nav a:hover{color:var(--accent)}
+    .cta{display:flex;gap:10px;align-items:center}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:10px;color:#001; font-weight:600;border:none;cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:48px 0}
+    .hero .intro h2{font-size:34px;margin:0 0 12px}
+    .hero .intro p{color:var(--muted);font-size:16px;margin:0 0 18px}
+    .hero .actions{display:flex;gap:12px}
+    .profile-card{background:var(--card);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px;align-items:center;box-shadow: 0 8px 30px rgba(2,6,23,0.6);}
+    .profile-card img{width:100%;max-width:320px;height:320px;object-fit:cover;border-radius:12px}
+    .profile-card .name{font-weight:700}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    /* Sections */
+    section{padding:44px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    h3.section-title{margin:0 0 18px;font-size:20px}
+    .grid{display:grid;gap:18px}
+
+    /* About */
+    .about-grid{grid-template-columns:1fr 340px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+
+    /* Timeline */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline-item{display:flex;gap:12px}
+    .timeline-item .meta{min-width:120px;color:var(--muted);font-size:14px}
+
+    /* Skills */
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill{display:flex;flex-direction:column;gap:6px}
+    .bar{height:10px;background:rgba(255,255,255,0.05);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .service{padding:18px;border-radius:12px}
+
+    /* Projects */
+    .projects{grid-template-columns:repeat(2,1fr)}
+    .project-card{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:var(--card);transition:transform .28s ease, box-shadow .28s ease}
+    .project-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .project-thumb{height:180px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center}
+    .project-body{padding:14px}
+    .project-body h4{margin:0 0 8px}
+    .project-footer{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* Contact */
+    .contact-grid{grid-template-columns:1fr 420px}
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+    textarea{min-height:120px}
+
+    footer{margin-top:40px;padding:24px 20px;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+  </style></head>
+<body>  <header>
+    <div class="nav">
+      <div class="brand">
+        <img src="rahul tiwari.jpg" alt="Rahul Tiwari" />
+        <div>
+          <h1>Rahul Tiwari</h1>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Full Stack Developer • MERN</div>
+        </div>
+      </div><nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="cta">
+    <a class="btn" href="#projects">View My Work</a>
+  </div>
+</div>
+
+  </header>  <main class="container"><section id="home" class="hero">
+  <div class="intro">
+    <h2>Hi, I’m Rahul Tiwari</h2>
+    <p>Full Stack Web Development enthusiast focused on creating responsive, user-friendly applications using the MERN stack and Java. I build end-to-end solutions — from UI to server and database.</p>
+    <div class="actions">
+      <a class="btn" href="#projects">View My Work</a>
+      <a class="btn" href="#contact" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)">Contact Me</a>
+    </div>
+
+    <div style="margin-top:18px" class="tags">
+      <span class="tag">MERN</span>
+      <span class="tag">Java</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">Responsive</span>
+    </div>
+  </div>
+
+  <aside class="profile-card">
+    <img src="rahul tiwari.jpg" alt="Rahul -- profile" />
+    <div style="text-align:center">
+      <div class="name">Rahul Tiwari</div>
+      <div style="color:var(--muted);font-size:14px;margin-top:6px">Full Stack Developer • MERN</div>
+      <div style="margin-top:10px;display:flex;gap:8px;justify-content:center">
+        <a href="https://www.linkedin.com/in/rahul-tiwari-3838232a6" target="_blank" style="color:var(--muted)"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" style="color:var(--muted)"><i class="fab fa-github fa-lg"></i></a>
+        <a href="mailto:tiwarir3398@gmail.com" style="color:var(--muted)"><i class="fa-regular fa-envelope fa-lg"></i></a>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid grid">
+    <div class="card">
+      <h3 class="section-title">About Me</h3>
+      <p>Motivated and self-driven Full Stack Web Development enthusiast with a strong grasp of the MERN stack (MongoDB, Express.js, React.js, Node.js). Skilled in building dynamic, responsive web applications and passionate about creating user-friendly interfaces with efficient backend logic. Completed multiple personal and academic projects showcasing end-to-end development, API integration, and deployment. Quick learner with a problem-solving mindset, eager to contribute to real-world projects and grow as a developer in a collaborative environment.</p>
+
+      <h4 style="margin-top:14px">Work Experience</h4>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="meta">Internship</div>
+          <div>
+            <strong>Analyze Infotech</strong>
+            <div style="color:var(--muted);font-size:13px">Intern — (dates)</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="meta">Trainee</div>
+          <div>
+            <strong>HCL (Java)</strong>
+            <div style="color:var(--muted);font-size:13px">Trainee — (dates)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="section-title">Education</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="meta">2022 — 2026</div>
+          <div>
+            <strong>B.Tech (CSE)</strong>
+            <div style="color:var(--muted);font-size:13px">Bansal Institute of Engineering & Technology, AKTU, Lucknow</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="meta">2020 — 2022</div>
+          <div>
+            <strong>Intermediate (Class 12)</strong>
+            <div style="color:var(--muted);font-size:13px">Sachidanand Inter College, Captainganj Kushinagar</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="meta">2020</div>
+          <div>
+            <strong>High School (Class 10)</strong>
+            <div style="color:var(--muted);font-size:13px">Sachidanand Inter College, Captainganj Kushinagar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h3 class="section-title">Skills</h3>
+  <div class="skills grid">
+    <div class="skill card">
+      <h4>Programming</h4>
+      <div>Java (Advanced)</div>
+      <div class="bar" aria-hidden><i style="width:85%"></i></div>
+
+      <div style="margin-top:10px">Python</div>
+      <div class="bar" aria-hidden><i style="width:60%"></i></div>
+
+      <div style="margin-top:10px">MySQL</div>
+      <div class="bar" aria-hidden><i style="width:65%"></i></div>
+    </div>
+
+    <div class="skill card">
+      <h4>Web & Tools</h4>
+      <div>HTML / CSS / JavaScript</div>
+      <div class="bar" aria-hidden><i style="width:80%"></i></div>
+
+      <div style="margin-top:10px">Node.js</div>
+      <div class="bar" aria-hidden><i style="width:70%"></i></div>
+
+      <div style="margin-top:10px">Git / GitHub / VS Code</div>
+      <div class="bar" aria-hidden><i style="width:75%"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h3 class="section-title">Services</h3>
+  <div class="services">
+    <div class="service card">
+      <h4><i class="fa-solid fa-code" style="margin-right:8px"></i>Web Development</h4>
+      <p>Frontend and backend development — responsive interfaces, REST APIs, and integration with databases.</p>
+    </div>
+    <div class="service card">
+      <h4><i class="fa-solid fa-layer-group" style="margin-right:8px"></i>Full Stack Development</h4>
+      <p>End-to-end web applications using MERN stack, deployment, and performance optimization.</p>
+    </div>
+    <div class="service card">
+      <h4><i class="fa-solid fa-brain" style="margin-right:8px"></i>Problem Solving</h4>
+      <p>Architecting solutions for software issues, debugging, and algorithmic problem solving.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h3 class="section-title">Selected Projects</h3>
+  <div class="projects grid">
+
+    <article class="project-card">
+      <div class="project-thumb"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Online Exam" style="max-width:100%;height:100%;object-fit:cover"/></div>
+      <div class="project-body">
+        <h4>Online Exam Website</h4>
+        <p>Dynamic exam platform with question management, timed tests, and result tracking. Built with modern frontend and backend tools and integrates with a database to store users, questions and scores.</p>
+      </div>
+      <div class="project-footer">
+        <div style="color:var(--muted);font-size:13px">Technologies: HTML, CSS, JS, Node.js, MySQL</div>
+        <div>
+          <a href="#" style="text-decoration:none;color:var(--accent)">Live</a>
+          &nbsp;•&nbsp;
+          <a href="#" style="text-decoration:none;color:var(--muted)">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-thumb"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop" alt="Rapid Mart" style="max-width:100%;height:100%;object-fit:cover"/></div>
+      <div class="project-body">
+        <h4>Rapid Mart — E-commerce</h4>
+        <p>End-to-end e-commerce application with product management, cart, and order handling. Focused on smooth UX and robust backend APIs to manage inventory and transactions.</p>
+      </div>
+      <div class="project-footer">
+        <div style="color:var(--muted);font-size:13px">Technologies: React, Node.js, Express, MySQL</div>
+        <div>
+          <a href="#" style="text-decoration:none;color:var(--accent)">Live</a>
+          &nbsp;•&nbsp;
+          <a href="#" style="text-decoration:none;color:var(--muted)">Code</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h3 class="section-title">Contact</h3>
+  <div class="contact-grid grid">
+    <div class="card">
+      <h4>Get in touch</h4>
+      <p style="color:var(--muted)">I'm available for internships, freelance work, and full-time roles. Send a message or reach out via phone / email.</p>
+
+      <ul style="list-style:none;padding:0;margin:12px 0;color:var(--muted)">
+        <li><strong>Phone:</strong> <a href="tel:8090121332" style="color:var(--muted);text-decoration:none">8090121332</a></li>
+        <li><strong>Email:</strong> <a href="mailto:tiwarir3398@gmail.com" style="color:var(--muted);text-decoration:none">tiwarir3398@gmail.com</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rahul-tiwari-3838232a6" target="_blank" style="color:var(--muted);text-decoration:none">/rahul-tiwari-3838232a6</a></li>
+      </ul>
+
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <a class="btn" href="mailto:tiwarir3398@gmail.com">Email Me</a>
+        <a class="btn" href="#" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Download CV</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <form onsubmit="alert('Form submitted (demo). Replace this with your form handler.)';return false;">
+        <input type="text" placeholder="Your name" required />
+        <input type="email" placeholder="Your email" required />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Rahul Tiwari — Built with ❤ • Designed for modern responsive experiences
+</footer>
+
+  </main>  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script></body>
+</html>

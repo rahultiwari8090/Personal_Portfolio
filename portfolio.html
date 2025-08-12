@@ -1,0 +1,340 @@
+ <!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rahul Tiwari — Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Rahul Tiwari — Full Stack Developer. Projects: Online Exam Website, Rapid Mart E-commerce. Services: Web & Full Stack Development." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ----------------------
+       Root variables & base
+       ---------------------- */
+    :root{
+      --bg: #ffffff;
+      --surface: #f7fbfc;
+      --text: #0f1724;
+      --muted: #6b7280;
+      --accent: #0ea5a4; /* teal */
+      --accent-600: #059e9c;
+      --radius: 12px;
+      --glass: rgba(255,255,255,0.6);
+      --max-width: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:24px 18px;
+      display:flex;justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width);} header{
+  display:flex;align-items:center;justify-content:space-between;padding:10px 6px;margin-bottom:22px;
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:56px;height:56px;border-radius:999px;object-fit:cover;box-shadow:0 6px 18px rgba(6,30,60,0.06)}
+.nav{
+  display:flex;gap:14px;align-items:center
+}
+.nav a{color:var(--muted);text-decoration:none;font-weight:600}
+.cta-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+
+/* ----------------------
+   Hero
+   ---------------------- */
+.hero{
+  display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:36px;
+  background:linear-gradient(180deg, rgba(14,165,164,0.04), transparent);
+  padding:28px;border-radius:18px
+}
+.hero .badge{display:inline-block;background:var(--surface);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent)}
+.hero h1{margin:10px 0 6px;font-size:28px}
+.hero p{margin:0;color:var(--muted)}
+.profile-card{display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px;border-radius:14px;background:var(--surface);}
+.profile-card img{width:160px;height:160px;border-radius:18px;object-fit:cover}
+.profile-card .title{font-weight:700}
+
+/* ----------------------
+   Sections
+   ---------------------- */
+section{margin-bottom:28px}
+.section-title{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.section-title h2{margin:0;font-size:18px}
+.grid{display:grid;gap:14px}
+
+/* Skills grid */
+.skills-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
+.skill{background:var(--surface);padding:12px;border-radius:12px}
+.skill .name{font-weight:600;margin-bottom:8px}
+.bar{height:8px;background:#e6f6f6;border-radius:8px;overflow:hidden}
+.bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-600));border-radius:8px}
+
+/* Services */
+.services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.service{background:linear-gradient(180deg, rgba(14,165,164,0.06), transparent);padding:16px;border-radius:12px}
+.service h3{margin:6px 0}
+
+/* Projects */
+.projects{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.project{background:var(--surface);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.project img{width:100%;height:160px;border-radius:8px;object-fit:cover}
+.project .meta{display:flex;justify-content:space-between;align-items:center}
+.btn{background:transparent;border:1px solid var(--accent);padding:8px 10px;border-radius:10px;color:var(--accent);font-weight:600;text-decoration:none}
+
+/* Contact */
+.contact-card{background:linear-gradient(180deg, rgba(250,250,250,1), var(--surface));padding:18px;border-radius:12px}
+.form-row{display:flex;gap:12px}
+.form-row .field{flex:1}
+input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #e6e9ee;font-family:inherit}
+textarea{min-height:120px;resize:vertical}
+.muted{color:var(--muted)}
+
+footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+/* Modal (project details) */
+.modal{position:fixed;inset:0;background:rgba(6,10,15,0.45);display:none;align-items:center;justify-content:center;padding:20px}
+.modal .card{background:white;border-radius:12px;padding:18px;max-width:820px;width:100%;}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .profile-card img{width:120px;height:120px}
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <!-- Replace src with your profile picture -->
+        <img src="rahul tiwari.jpg" alt="Rahul Tiwari">
+        <div>
+          <div style="font-weight:700">Rahul Tiwari</div>
+          <div class="muted" style="font-size:13px">Full Stack Developer</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact" class="cta-btn">Contact</a>
+      </nav>
+    </header><main>
+  <section class="hero">
+    <div>
+      <span class="badge">Full Stack Developer</span>
+      <h1>Hi, I’m Rahul Tiwari</h1>
+      <p>Building innovative solutions with code and creativity. I specialize in full stack web development and software problem-solving.</p>
+
+      <div style="margin-top:18px;display:flex;gap:12px">
+        <a href="#portfolio" class="btn">View Projects</a>
+        <a href="#contact" class="cta-btn">Hire Me</a>
+      </div>
+
+      <div style="margin-top:22px;display:flex;gap:18px;align-items:center">
+        <div style="display:flex;flex-direction:column">
+          <strong>Education</strong>
+          <span class="muted">B.Tech CSE — Bansal Institute of Engineering & Technology (4th Year)</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="profile-card">
+      <img src="rahul tiwari.jpg" alt="Rahul Tiwari">
+      <div class="title">Rahul Tiwari</div>
+      <div class="muted">Full Stack Developer</div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <a class="btn" href="#portfolio">Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </aside>
+  </section>
+
+  <section id="about">
+    <div class="section-title"><h2>About</h2></div>
+    <div class="grid">
+      <div style="background:var(--surface);padding:16px;border-radius:12px">
+        <p>Rahul Tiwari is a Full Stack Developer with expertise in C, C++, Python, Java, HTML, CSS, and JavaScript. He is passionate about developing innovative solutions and solving complex problems. Rahul is keen to adopt new technologies and deliver high-quality solutions that meet client needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title"><h2>Skills</h2></div>
+    <div class="grid skills-grid">
+      <div class="skill">
+        <div class="name">C / C++</div>
+        <div class="bar"><span style="width:85%"></span></div>
+      </div>
+      <div class="skill">
+        <div class="name">Python</div>
+        <div class="bar"><span style="width:80%"></span></div>
+      </div>
+      <div class="skill">
+        <div class="name">Java</div>
+        <div class="bar"><span style="width:78%"></span></div>
+      </div>
+      <div class="skill">
+        <div class="name">HTML / CSS / JS</div>
+        <div class="bar"><span style="width:88%"></span></div>
+      </div>
+      <div class="skill">
+        <div class="name">Full Stack Development</div>
+        <div class="bar"><span style="width:82%"></span></div>
+      </div>
+      <div class="skill">
+        <div class="name">Problem Solving & Tech Adoption</div>
+        <div class="bar"><span style="width:86%"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title"><h2>Services</h2></div>
+    <div class="grid services">
+      <div class="service">
+        <h3>Web Development</h3>
+        <p class="muted">Frontend and backend web development using modern standards. Responsive UIs, accessible markup, and clean code.</p>
+      </div>
+      <div class="service">
+        <h3>Full Stack Development</h3>
+        <p class="muted">Complete web applications with database integration, server-side logic, APIs, and client-side interfaces.</p>
+      </div>
+      <div class="service">
+        <h3>Problem Solving</h3>
+        <p class="muted">Software debugging, system integration, and data-driven solutions to complex problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-title"><h2>Portfolio</h2></div>
+    <div class="grid projects">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Online Exam Project">
+        <div>
+          <h3>Online Exam Website</h3>
+          <p class="muted">Platform for students and educators to take online exams and check results. Features question banks and result reporting.</p>
+        </div>
+        <div class="meta">
+          <small class="muted">Java, MySQL, Servlets/JSP (example)</small>
+          <a href="#" class="btn" data-project="online-exam">View Details</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop" alt="Rapid Mart Project">
+        <div>
+          <h3>Rapid Mart (E-commerce)</h3>
+          <p class="muted">E-commerce platform with product management, payment gateway integration, and a user-friendly UI for ordering products online.</p>
+        </div>
+        <div class="meta">
+          <small class="muted">Java, Spring (example)</small>
+          <a href="#" class="btn" data-project="rapid-mart">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title"><h2>Contact</h2></div>
+    <div class="grid" style="grid-template-columns:1fr 360px;gap:18px;align-items:start">
+      <div class="contact-card">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field"><input name="name" placeholder="Your name" required></div>
+            <div class="field"><input name="email" type="email" placeholder="Your email" required></div>
+          </div>
+          <div style="margin-top:12px"><textarea name="message" placeholder="Your message..." required></textarea></div>
+          <div style="margin-top:12px;display:flex;gap:10px;justify-content:flex-end">
+            <button type="submit" class="cta-btn">Send Message</button>
+          </div>
+          <p id="formNote" class="muted" style="margin-top:10px">This form sends messages privately to Rahul (configure backend endpoint to receive messages).</p>
+        </form>
+      </div>
+
+      <aside style="background:var(--surface);padding:16px;border-radius:12px">
+        <h3>Availability</h3>
+        <p class="muted">Open to internships, freelance projects, and collaborations. Use the contact form to reach out.</p>
+        <div style="margin-top:12px">
+          <strong>Links</strong>
+          <p class="muted">(No direct links shown — replace with GitHub / LinkedIn when ready)</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rahul Tiwari — Built with care.
+  </footer>
+</main>
+
+  </div>  <!-- Modal for project details -->  <div class="modal" id="modal">
+    <div class="card" role="dialog" aria-modal="true">
+      <button id="closeModal" style="float:right;background:transparent;border:none;font-weight:700;font-size:18px">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>  <script>
+    // Basic JS: form handling and modal details
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form: this demo just shows a success toast and logs the payload.
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(contactForm);
+      const payload = Object.fromEntries(data.entries());
+      console.log('Contact form submitted (demo) ->', payload);
+      // TODO: Replace with fetch('/api/contact', { method:'POST', body: JSON.stringify(payload) })
+      document.getElementById('formNote').textContent = 'Message sent! (Demo mode — configure backend to actually deliver messages.)';
+      contactForm.reset();
+    });
+
+    // Project modal
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+    document.querySelectorAll('[data-project]').forEach(btn => {
+      btn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const id = btn.dataset.project;
+        openProjectModal(id);
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click', () => modal.style.display='none');
+
+    function openProjectModal(id){
+      let html = '';
+      if(id === 'online-exam'){
+        html = `<h2>Online Exam Website</h2>
+                <p class="muted">An online exam platform built for students and educators featuring timed tests, question banks, and result reports. Implemented with Java backend and SQL database. Key features: user auth, question management, exam creation, auto-grading (where applicable), and results dashboard.</p>
+                <h4>Tech / Notes</h4>
+                <ul class="muted"><li>Java, Servlets/JSP or Spring</li><li>MySQL or similar RDBMS</li><li>Responsive UI with HTML/CSS/JS</li></ul>`;
+      } else if(id === 'rapid-mart'){
+        html = `<h2>Rapid Mart — E-commerce</h2>
+                <p class="muted">A modern e-commerce site with product listings, shopping cart, payment gateway integration, and admin panel for product management. Focus on intuitive user flows and secure transactions.</p>
+                <h4>Tech / Notes</h4>
+                <ul class="muted"><li>Java backend (Spring suggested)</li><li>Payment integration demo (Stripe / Razorpay)</li><li>Admin dashboard for product CRUD</li></ul>`;
+      }
+      modalContent.innerHTML = html;
+      modal.style.display = 'flex';
+    }
+
+    // Close modal on outside click
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.style.display='none' });
+  </script>  <!--
+    ✅ Next steps / deployment notes (replace when ready):
+    - Replace placeholder images with your actual profile & project screenshots.
+    - Hook the contact form to a backend (e.g., Formspree, Netlify functions, or your own endpoint).
+    - Add real links to GitHub / LinkedIn when you want them visible.
+    - For production, minify CSS/JS and optimize images.
+  --></body>
+</html>
